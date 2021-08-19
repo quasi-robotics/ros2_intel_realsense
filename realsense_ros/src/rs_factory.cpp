@@ -100,7 +100,7 @@ void RealSenseNodeFactory::startDevice()
       rs_node_ = std::make_unique<RealSenseT265>(ctx_, dev_, *this);
       break;
     default:
-      RCLCPP_ERROR(this->get_logger(), "Unsupported device! Product ID: 0x%s", pid_str);
+      RCLCPP_ERROR(this->get_logger(), "Unsupported device! Product ID: 0x%s", pid_str.c_str());
       rclcpp::shutdown();
   }
   rs_node_->startPipeline();
